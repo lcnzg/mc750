@@ -1,21 +1,326 @@
-<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Deep Music</title>
-        <link rel="stylesheet" href="css/style.css">
-    </head>
+<head>
+  <title>DeepMusic</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+</head>
+<body>
+  <script src="keymaster.js"></script>
+  <div id="divImagem" name="divImagem" style="width: 300px; height: 300px; position: absolute; top: 50%; margin-top: -150px; left: 50%; margin-left: -150px">
+	<img src="baqueta.jpg" name="tagImagem" id="tagImagem" alt="Duas baquetas em cima de um tambor">
+  </div>
+  <div id="divImagem2" name="divImagem2" style="position: absolute; top: 45%; margin-top: -250px; left: 50%; margin-left: -300px">
+	<h2 id="superiorMeio" name="superiorMeio" align="center" style="font-size: 60px; margin-top: 0%"></h2>
+	<img src="" name="tagImagem2" id="tagImagem2" alt="Uma sequência de imagens que mostra um barranco na beira de uma praia. Com o passar das imagens, esse barranco vai perdendo pedacos de terra devido ao movimento da água batendo no solo durante vários anos." style="max-width: 640px; width: auto; max-height: 360px; height: auto; ">
+	<h5 id="inferiorMeio" name="inferiorMeio" align="center" style="font-size: 30px; margin-top: 10%"></h5>
+  </div>
+  <div id="divImagem4" name="divImagem4" style="position: absolute; top: 45%; margin-top: -320px; left: 50%; margin-left: -300px">
+	<h2 id="superiorMeio3" name="superiorMeio3" align="center" style="font-size: 60px; margin-top: 0%"></h2>
+	<img src="" name="tagImagem5" id="tagImagem5" alt="Uma sequência de imagens que mostra, de forma qualitativa, como os organismos de milhões de anos atrás foram evoluindo até termos a espécie Homo-Sapiens." style="max-width: 640px; width: auto; max-height: 640px; height: auto; ">
+	<h5 id="inferiorMeio3" name="inferiorMeio3" align="center" style="font-size: 30px; margin-top: 10%"></h5>
+  </div>
+  <div id="divImagem3" name="divImagem3" style="position: absolute; top: 45%; margin-top: -250px; left: 50%; margin-left: -600px">
+	<h2 id="superiorMeio2" name="superiorMeio2" align="center" style="font-size: 60px; margin-top: 0%"></h2>
+	<img src="" name="tagImagem3" id="tagImagem3" alt="Imagem do barranco no início do período." style="max-width: 640px; width: auto; max-height: 360px; height: auto; ">
+	<img src="" name="tagImagem4" id="tagImagem4" alt="Imagem do barranco no final do período, com muito menos terra que no início." style="max-width: 640px; width: auto; max-height: 360px; height: auto; ">
+	<h5 id="inferiorMeio2" name="inferiorMeio2" align="center" style="font-size: 30px; margin-top: 10%"></h5>
+  </div>
+  <div id="divImagem5" name="divImagem5" style="position: absolute; top: 45%; margin-top: -320px; left: 50%; margin-left: -600px">
+	<h2 id="superiorMeio4" name="superiorMeio4" align="center" style="font-size: 60px; margin-top: 0%"></h2>
+	<img src="" name="tagImagem6" id="tagImagem6" alt="Representação dos primeiros organismo do reino Animalia." style="max-width: 640px; width: auto; max-height: 640px; height: auto; ">
+	<img src="" name="tagImagem7" id="tagImagem7" alt="Representação de um Homo-Sapiens." style="max-width: 640px; width: auto; max-height: 640px; height: auto; ">
+	<h5 id="inferiorMeio4" name="inferiorMeio4" align="center" style="font-size: 30px; margin-top: 10%"></h5>
+  </div>
+  <h1 id="meio" name="meio" align="center" style="font-size: 60px; margin-top: 30%"></h1>
+  <div id="temas1" name="temas1" style="width: 300px; height: 33%; position: absolute; top: 40%; margin-top: -16%; left: 25%; margin-left: -150px">
+	<h1 id="tema1" name="tema1" style="font-size: 60px"></h1>
+  </div>
+  <div id="temas2" name="temas2" style="width: 300px; height: 33%; position: absolute; top: 40%; margin-top: -16%; right: 25%; margin-right: -150px">
+	<h1 id="tema2" name="tema2" style="font-size: 60px"></h1>
+  </div>
+  <div id="temaTexto1" name="temaTexto1" style="width: 300px; height: 33%; position: absolute; top: 57%; margin-top: -16%; left: 25%; margin-left: -150px">
+	<h2 id="esquerda" name="esquerda" style="font-size: 40px"></h2>
+  </div>
+  <div id="temaTexto2" name="temaTexto2" style="width: 300px; height: 33%; position: absolute; top: 57%; margin-top: -16%; right: 25%; margin-right: -150px">
+	<h2 id="direita" name="direita" style="font-size: 40px"></h2>
+  </div>
+  <div id="opcoes1" name="opcoes1" style="width: 300px; height: 30%; position: absolute; top: 77%; margin-top: -15%; left: 25%; margin-left: -150px">
+	<h5 id="opcao1" name="opcao1" style="font-size: 30px"></h5>
+  </div>
+  <div id="opcoes2" name="opcoes2" style="width: 300px; height: 30%; position: absolute; top: 77%; margin-top: -15%; right: 25%; margin-right: -150px">
+	<h5 id="opcao2" name="opcao2" style="font-size: 30px"></h5>
+  </div>
+  <h5 id="inferiorDireito" name="inferiorDireito" align="right" style="font-size: 30px; margin-top: 10%; margin-right: 5%"></h5>
+  <script>
+	var batidas = 0;
+	var batidasQ = 0;
+	var batidasW = 0;
+	var estado = 0;
+	var qtdMinima = 2; 
+	var contImagem = 0;
+	var novo_estado = 0;
+	var contador = 0;
+	var limite = 0;
+	document.getElementById("divImagem2").style.display = 'none';
+	document.getElementById("divImagem3").style.display = 'none';
+	document.getElementById("divImagem4").style.display = 'none';
+	document.getElementById("divImagem5").style.display = 'none';
+	
+	var update = setInterval(f5, 30000);
+	
+	function f5(){
+		document.location.reload();
+	}
+	
+	function passar() {
+		var txtInferiorDireito = document.getElementById('inferiorDireito');
+		txtInferiorDireito.innerHTML = "Batuque para passar";
+		batidas = 0;
+		estado = novo_estado;
+	}
+	
+	function passar2() {
+		var txtOpcao1 = document.getElementById('opcao1');
+		txtOpcao1.innerHTML = "Batuque na natureza";
+		var txtOpcao2 = document.getElementById('opcao2');
+		txtOpcao2.innerHTML = "Batuque na humanidade";
+		batidas = 0;
+		contImagem = 0;
+		batidasQ = 0;
+		batidasW = 0;
+		estado = novo_estado;
+	}
+	
+	function mudaTela(_estado, _tambor) {
+		clearInterval(update);
+		update = setInterval(f5, 30000);
+		switch(_estado) {
+			case 0:
+				if(batidas >= qtdMinima) {
+					var node = document.getElementById("divImagem");
+					if(node.parentNode) {
+						node.parentNode.removeChild(node);
+					}
+					var txtMeio = document.getElementById('meio');
+					txtMeio.innerHTML = "Bem vindo ao<br/>DeepMusic!";
+					novo_estado = 1;
+					setTimeout(passar, 1000);
+				}
+				break;
+			case 1:
+				if(batidas >= qtdMinima) {
+					var txtMeio = document.getElementById('meio');
+					txtMeio.innerHTML = "Nós iremos te levar a um tour sobre alguns dos processos mais lentos que ocorrem na natureza";
+					var txtInferiorDireito = document.getElementById('inferiorDireito');
+					txtInferiorDireito.innerHTML = "";
+					novo_estado = 2;
+					setTimeout(passar, 1000);
+				}
+				break;
+			case 2:
+				if(batidas >= qtdMinima) {
+					var txtMeio = document.getElementById('meio');
+					txtMeio.innerHTML = "Escolha um dos temas e se prepare para explorar a diferença entre processos naturais e processos sob interferência humana";
+					var txtInferiorDireito = document.getElementById('inferiorDireito');
+					txtInferiorDireito.innerHTML = "";
+					novo_estado = 3;
+					setTimeout(passar, 1000);
+				}
+				break;
+			case 3:
+				if(batidas >= qtdMinima) {
+					var txtTema1 = document.getElementById('tema1');
+					txtTema1.innerHTML = "Tema 1";
+					var txtTema2 = document.getElementById('tema2');
+					txtTema2.innerHTML = "Tema 2";
+					var txtEsquerda = document.getElementById('esquerda');
+					txtEsquerda.innerHTML = "Erosão<br/>e<br/>Deposição";
+					var txtDireita = document.getElementById('direita');
+					txtDireita.innerHTML = "Evolução<br/>das<br/>Espécies";
+					var txtMeio = document.getElementById('meio');
+					txtMeio.innerHTML = "";
+					var txtInferiorDireito = document.getElementById('inferiorDireito');
+					txtInferiorDireito.innerHTML = "";
+					var txtOpcao1 = document.getElementById('opcao1');
+					txtOpcao1.innerHTML = "";
+					var txtOpcao2 = document.getElementById('opcao2');
+					txtOpcao2.innerHTML = "";
+					novo_estado = 4;
+					document.getElementById("divImagem2").style.display = 'none';
+					document.getElementById("divImagem3").style.display = 'none';
+					document.getElementById("divImagem4").style.display = 'none';
+					document.getElementById("divImagem5").style.display = 'none';
+					setTimeout(passar2, 1000);
+				}
+				break;
+			case 4:
+				if(batidasQ >= qtdMinima) {
+					var txtTema1 = document.getElementById('tema1');
+					txtTema1.innerHTML = "";
+					var txtTema2 = document.getElementById('tema2');
+					txtTema2.innerHTML = "";
+					var txtEsquerda = document.getElementById('esquerda');
+					txtEsquerda.innerHTML = "";
+					var txtDireita = document.getElementById('direita');
+					txtDireita.innerHTML = "";
+					var txtOpcao1 = document.getElementById('opcao1');
+					txtOpcao1.innerHTML = "";
+					var txtOpcao2 = document.getElementById('opcao2');
+					txtOpcao2.innerHTML = "";
+					var txtMeio = document.getElementById('meio');
+					txtMeio.innerHTML = "";
+					var txtInferiorDireito = document.getElementById('inferiorDireito');
+					txtInferiorDireito.innerHTML = "";
+					var txtInferiorMeio = document.getElementById('inferiorMeio');
+					txtInferiorMeio.innerHTML = "Batuque como quiser :)";
+					var txtSuperiorMeio = document.getElementById('superiorMeio');
+					txtSuperiorMeio.innerHTML = "Erosão e Deposição";
+					batidasQ = 0;
+					estado = 5;
+					contImagem = 0;
+					var img = document.getElementById("tagImagem2");
+					img.src = "./tema1/Snapshot_"+contImagem+".png";
+					img.alt = "Processo de Erosão";
+					document.getElementById("divImagem2").style.display = 'block';
+					document.getElementById("divImagem3").style.display = 'none';
+					document.getElementById("divImagem4").style.display = 'none';
+					document.getElementById("divImagem5").style.display = 'none';
+				}else if(batidasW >= qtdMinima) {
+					var txtTema1 = document.getElementById('tema1');
+					txtTema1.innerHTML = "";
+					var txtTema2 = document.getElementById('tema2');
+					txtTema2.innerHTML = "";
+					var txtEsquerda = document.getElementById('esquerda');
+					txtEsquerda.innerHTML = "";
+					var txtDireita = document.getElementById('direita');
+					txtDireita.innerHTML = "";
+					var txtOpcao1 = document.getElementById('opcao1');
+					txtOpcao1.innerHTML = "";
+					var txtOpcao2 = document.getElementById('opcao2');
+					txtOpcao2.innerHTML = "";
+					var txtMeio = document.getElementById('meio');
+					txtMeio.innerHTML = "";
+					var txtInferiorDireito = document.getElementById('inferiorDireito');
+					txtInferiorDireito.innerHTML = "";
+					var txtInferiorMeio = document.getElementById('inferiorMeio3');
+					txtInferiorMeio.innerHTML = "Batuque como quiser :)";
+					var txtSuperiorMeio = document.getElementById('superiorMeio3');
+					txtSuperiorMeio.innerHTML = "Evolução das Espécies";
+					batidasW = 0;
+					estado = 6;
+					contImagem = 1;
+					var img = document.getElementById('tagImagem5');
+					img.src = "./tema2/Snapshot_"+contImagem+".png";
+					img.alt = "Processo de evolução de espécies";
+					document.getElementById("divImagem4").style.display = 'block';
+					document.getElementById("divImagem3").style.display = 'none';
+					document.getElementById("divImagem2").style.display = 'none';
+					document.getElementById("divImagem5").style.display = 'none';
+				}
+				break;
+			case 5:
+				if(_tambor == "natureza") {
+					contImagem += 0.5;
+				}else if(_tambor == "humanidade") {
+					contImagem += 3;
+				}
+				if(contImagem >= 252) {
+					contImagem = 252;
+					var txtInferiorMeio = document.getElementById('inferiorMeio');
+					txtInferiorMeio.innerHTML = "Aperte o botão para retornar aos temas";
+					var img = document.getElementById('tagImagem3');
+					img.src = "./tema1/Snapshot_1.png";
+					var img = document.getElementById('tagImagem4');
+					img.src = "./tema1/Snapshot_252.png";
+					var txtInferiorMeio = document.getElementById('inferiorMeio2');
+					txtInferiorMeio.innerHTML = "Aperte o botão para retornar aos temas!";
+					var txtSuperiorMeio = document.getElementById('superiorMeio2');
+					txtSuperiorMeio.innerHTML = "Inicio > Final";
+					document.getElementById("divImagem2").style.display = 'none';
+					document.getElementById("divImagem4").style.display = 'none';
+					document.getElementById("divImagem5").style.display = 'none';
+					document.getElementById("divImagem3").style.display = 'block';
+				}
+				var img = document.getElementById('tagImagem2');
+				img.src = "./tema1/Snapshot_"+Math.floor(contImagem)+".png";
+				break;
+			case 6:
+				if(_tambor == "natureza") {
+					contImagem += 0.34;
+				}else if(_tambor == "humanidade") {
+					contImagem += 2;
+				}
+				if(contImagem >= 145) {
+					contImagem = 145;
+					var txtInferiorMeio = document.getElementById('inferiorMeio');
+					txtInferiorMeio.innerHTML = "Aperte o botão para retornar aos temas";
+					var img = document.getElementById('tagImagem6');
+					img.src = "./tema2/Snapshot_1.png";
+					var img = document.getElementById('tagImagem7');
+					img.src = "./tema2/Snapshot_145.png";
+					var txtInferiorMeio = document.getElementById('inferiorMeio4');
+					txtInferiorMeio.innerHTML = "Aperte o botão para retornar ao temas!";
+					var txtSuperiorMeio = document.getElementById('superiorMeio4');
+					txtSuperiorMeio.innerHTML = "Inicio > Final";
+					document.getElementById("divImagem5").style.display = 'block';
+					document.getElementById("divImagem4").style.display = 'none';
+					document.getElementById("divImagem3").style.display = 'none';
+					document.getElementById("divImagem2").style.display = 'none';
+				}
+				var img = document.getElementById('tagImagem5');
+				img.src = "./tema2/Snapshot_"+Math.floor(contImagem)+".png";
+				break;
+			default:
+				break;
+		}
+	}
+	
+	key('q', function(){ 
+		switch(estado) {
+			case 0:
+			case 1:
+			case 2:
+			case 3:
+				batidas++;
+				mudaTela(estado, "natureza");
+				break;
+			case 4:
+			case 5:
+			case 6:
+				batidasQ++;
+				mudaTela(estado, "natureza");
+				break;
+			default:
+				break;
+		}
+	});
+	
+	key('w', function(){ 
+		switch(estado) {
+			case 0:
+			case 1:
+			case 2:
+			case 3:
+				batidas++;
+				mudaTela(estado, "humanidade");
+				break;
+			case 4:
+			case 5:
+			case 6:
+				batidasW++;
+				mudaTela(estado, "humanidade");
+				break;
+			default:
+				break;
+		}
+	}); 
 
-    <body>
-
-        <input id="red" type="range" min="1" max="255" step="1" value="255" onchange="updateRed(this.value)"/><br />
-        <input id="green" type="range" min="1" max="255" step="1" value="255" onchange="updateGreen(this.value)" /><br />
-        <input id="blue" type="range" min="1" max="255" step="1" value="255" onchange="updateBlue(this.value)" />
-
-        <div id="monalisa"></div>
-
-        <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
-        <script src="js/script.js"></script>
-
-    </body>
+	key('r', function(){
+		if(estado >= 4) {
+			batidas = qtdMinima;
+			estado = 3;
+			mudaTela(estado, "reset");
+		}
+	});  
+  </script>
+</body>
 </html>
